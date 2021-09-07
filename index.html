@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Landing Page</title>
+    <style>
+        #myvid{
+            min-height: 100vh;
+            min-width: 100%;
+            margin: -10px;
+            z-index: -1;
+
+        }
+
+        #btn{
+            background-color: transparent;
+            color: white;
+            border: none;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            transition: transform 0.3s ease-in-out;
+
+        }
+        button.inactive{
+            background-color: transparent;
+            color: white;
+            border: none;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+
+        }
+        button.active{
+            transform: translateX(-100px);
+            transition: transform 0.3s ease-in-out;
+        }
+        nav{
+            background-color: transparent;
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            transform:translateX(100%) ;
+            transition: transform 0.3s ease-in-out;
+        }
+        nav.inactive{
+            background-color: transparent;
+            position: fixed;
+            top: 0px;
+            right: 20px;
+            transform:translateX(100%) ;
+        }
+        nav ul li a{
+            text-decoration: none;
+            padding-top: 90px;
+            font-size: 1.3rem;
+            color: white;
+        }
+        nav ul{
+            list-style: none;
+        }
+        nav ul li{
+            margin: 10px 20px;
+            font-size: 1.4rem;
+        }
+        nav.active{
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(0);
+        }
+        #topnav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+            position: fixed;
+            z-index: 1;
+        }
+        #topnav span{
+            color:white;
+            margin: 30px 40px;
+            font-size: 2rem;
+        }
+        #content{
+            position: fixed;
+            top: 100px;
+            width: 520px;
+            margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        #head{
+            color: white;
+            font-size: 3rem;
+
+        }
+        #cont{
+            color: white;
+            font-size: 1.7rem;
+        }
+        #btn1{
+            background-color: white;
+            font-size: 1.3rem;
+            color: black;
+            width: 50%;
+            margin: auto;
+        }
+        #btn1:hover{
+            background-color: blanchedalmond;
+        }
+
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="myvid">
+        <source src="https://player.vimeo.com/external/377068266.sd.mp4?s=a84892f128cc3dfb23266e7cbb9aea31f5c1be37&profile_id=139&oauth2_token_id=57447761" >
+      </video>
+      <div id="topnav">
+          <span>Travel</span>
+          <button id="btn"><svg id="left" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+          </svg></button>
+      </div>
+      <nav id="nav">
+        <ul>
+            <li><a href="#">Google</a></li>
+            <li><a href="#">Yahoo</a></li>
+            <li><a href="#">Firefox</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <span id="head">
+            Lorem ipsum dolor sit elit.
+        </span>
+        <p id="cont">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem facilis, adipisci possimus maxime nam rem animi ratione doloremque error inventore laboriosam ad architecto nostrum voluptate ex in! Alias totam quas sapiente doloribus ut libero blanditiis est quasi explicabo autem quis sequi rem, dignissimos nulla quisquam, ullam eligendi! Architecto, perspiciatis error?</p>
+        <button id="btn1">explore more</button>
+    </div>
+
+    <script>
+        btn=document.getElementById("btn");
+        nav=document.getElementById("nav");
+        
+        btn.addEventListener("click",()=>{
+            nav.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.getElementById('left').innerHTML='<path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>'
+            if (nav.classList=='active'){
+                document.getElementById("left").innerHTML='<path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>'
+                // nav.classList('inactive');
+                // btn.classList('inactive');
+
+            }
+        });
+    </script>
+
+</body>
+</html>
